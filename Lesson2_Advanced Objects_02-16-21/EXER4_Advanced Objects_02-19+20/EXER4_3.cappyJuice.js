@@ -1,27 +1,17 @@
 function main(juiceArr) {
-    let juiceObj = {};
+    let partialJuiceQty = {};
+    let juiceBottles = {};
 
-    let juice = juiceArr.shift();
-    while (juiceArr.length !== 0) {
+    juiceArr.forEach(juice => {
         let [juiceType, quantity] = juice.split(' => ');
-        if (!juiceObj.hasOwnProperty(juiceType) && +quantity < 1000) {
-            if (juiceArr.length < 2) {
-                break;
-            } 
-            juiceArr.push(juice);
-        } else if (!juiceObj.hasOwnProperty(juiceType) && +quantity >= 1000) {
-            juiceObj[juiceType] = +quantity;
-        } else if (juiceObj.hasOwnProperty(juiceType)) {
-            juiceObj[juiceType] += +quantity;
+        if(!partialJuiceQty[juiceType]){
+            
         }
-        juice = juiceArr.shift();
-    }
-
-    let juiceInventory = Object.entries(juiceObj);
-    for (let [juice, bottle] of juiceInventory) {
-        console.log(`${juice} => ${Math.floor(bottle / 1000)}`);
-    }
+        console.log(juiceType, quantity);
+    });
 }
+
+// main(['Orange => 2000','Peach => 1432', 'Banana => 450', 'Peach => 600', 'Strawberry => 549']);
 
 main([
     'Apple => 200',
