@@ -1,9 +1,9 @@
+let asc = arr => console.log(arr.sort((a, b) => a - b));
+let desc = arr => console.log(arr.sort((a, b) => b - a));
 function main(numArr, command) {   
     switch(command){
-        case 'asc': console.log(numArr.sort((a, b) => a - b));
-        break;
-        case 'desc': console.log(numArr.sort((a, b) => b - a));
-        break;
+        case 'asc': return asc(numArr);
+        case 'desc': return desc(numArr);
     }
 }
 
