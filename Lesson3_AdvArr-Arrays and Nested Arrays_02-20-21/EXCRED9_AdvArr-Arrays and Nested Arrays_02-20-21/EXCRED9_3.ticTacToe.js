@@ -16,7 +16,9 @@ function main(movesArr) {
         if (spot === false) {
             dashboard[row][column] = player;
             // check if user wins or not
-           if(ifWins(boardArr, player))
+           if(ifWins(boardArr, player)){
+
+           }
         } 
         // check if board is full
         else if (boardArr.every(row => row.every(spot => spot !== false))) {
@@ -35,14 +37,17 @@ function ifWins(board, player) {
 }
 
 function checkLeftDiagonal(board, player){
-    let leftArr = [];
+    let leftArr = [];    
     let leftIndex = 0;
+    
     board.forEach(row =>{
         leftArr.push(row[Index]);
         leftIndex++;
     });
-    return mainArr.every(el => el === player);
+
+    return leftArr.every(el => el === player);
 }
+
 function checkRightDiagonal(board, player){
     let rightArr = [];
     let rightIndex = 0;
@@ -50,6 +55,7 @@ function checkRightDiagonal(board, player){
         rightArr.push(row[rightIndex]);
         rightIndex++;
     });
-    return mainArr.every(el => el === player);
+    return rightArr.every(el => el === player);
 }
+
 main(['0 1', '0 0', '0 2', '2 0', '1 0', '1 1', '1 2', '2 2', '2 1', '0 0']);
